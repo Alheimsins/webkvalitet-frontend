@@ -2,8 +2,10 @@ import Card from "../components/card"
 
 export default function Home({ data }) {
   return (
-    <div>
-      {data.map(result => <Card key={result.id} {...result} />)}
+    <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <ul role="list" className="space-y-3">
+        {data.map(result => <Card key={result.id} {...result} />)}
+      </ul>
     </div>
   )
 }
