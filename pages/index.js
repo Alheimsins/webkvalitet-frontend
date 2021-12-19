@@ -1,7 +1,9 @@
+import Card from "../components/card"
+
 export default function Home({ data }) {
   return (
-    <div className="center">
-      {JSON.stringify(data, null, 2)}
+    <div>
+      {data.map(result => <Card key={result.id} {...result} />)}
     </div>
   )
 }
