@@ -1,7 +1,22 @@
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div className="center">
-      <h1 className="text-4xl">Hello</h1>
+      {JSON.stringify(data, null, 2)}
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  const res = await fetch('https://webkvalitet.api.alheimsins.net/fylker')
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      data: [],
+    }
+  }
+
+  return {
+    props: { data },
+  }
 }
