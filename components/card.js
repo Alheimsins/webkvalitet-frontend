@@ -6,9 +6,9 @@ export default function Card ({ name, url }) {
       <div className="flex justify-between">
         <h1>{name}</h1>
         <div className='flex'>
-          <a href={url} target='_blank' title={`Visit the website for ${name}`}><LinkIcon className='h-5 w-5 text-black hover:text-gray-500 mr-3'/></a>
-          <a href={`https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=${url}`} target='_blank' title={`Visit the Lighthouse report for ${name}`}><LightBulbIcon className='h-5 w-5 text-black hover:text-gray-500 mr-3'/></a>
-          <a href={`https://securityheaders.com?q=${url}&hide=on&followRedirects=on`} target='_blank' title={`Visit the Securityheaders report for ${name}`}><LockClosedIcon className='h-5 w-5 text-black hover:text-gray-500'/></a>
+          <a href={url} target='_blank' rel='noreferrer' title={`Visit the website for ${name}`}><LinkIcon className='h-5 w-5 text-black hover:text-gray-500 mr-3'/></a>
+          <a href={`https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=${url}`} target='_blank' rel='noreferrer' title={`Visit the Lighthouse report for ${name}`}><LightBulbIcon className='h-5 w-5 text-black hover:text-gray-500 mr-3'/></a>
+          <a href={`https://securityheaders.com?q=${url}&hide=on&followRedirects=on`} target='_blank' rel='noreferrer' title={`Visit the Securityheaders report for ${name}`}><LockClosedIcon className='h-5 w-5 text-black hover:text-gray-500'/></a>
         </div>
       </div>
     </li>
