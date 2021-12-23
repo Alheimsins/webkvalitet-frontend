@@ -14,7 +14,7 @@ export default function Card ({ name, url, result }) {
         </div>
       </div>
       <div className='flex justify-between'>
-        {result.map(category => <Score key={category.title} {...category} />)}
+        {result.map(category => <Score key={category.id} {...category} />)}
       </div>
     </li>
   )
