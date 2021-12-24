@@ -4,7 +4,7 @@ export default function Home({ data }) {
   return (
     <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
       <ul role="list" className="space-y-12">
-        {data.map(result => <Card key={result.id} {...result} />)}
+        {data.map((result, index) => <Card key={result.id} place={index+1} {...result} />)}
       </ul>
     </div>
   )
