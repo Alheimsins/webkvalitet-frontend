@@ -13,7 +13,7 @@ export default function Card ({ name, url, result }) {
           <a href={`https://securityheaders.com?q=${url}&hide=on&followRedirects=on`} target='_blank' rel='noreferrer' title={`Visit the Securityheaders report for ${name}`}><LockClosedIcon className='h-5 w-5 text-white hover:text-yellow-500'/></a>
         </div>
       </div>
-      <div className='flex justify-between p-4'>
+      <div className='flex flex-wrap sm:justify-between p-4'>
         {result.map(category => <Score key={category.id} {...category} />)}
       </div>
     </li>

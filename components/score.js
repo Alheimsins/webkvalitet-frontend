@@ -12,7 +12,7 @@ function getColor(score) {
 
 export default function Score({ title, score }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col m-2">
       <CircularProgressbarWithChildren
         value={score}
         text={score}
