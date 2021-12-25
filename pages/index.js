@@ -1,5 +1,3 @@
-import useSWR from "swr"
-
 import Card from "../components/card"
 
 const fetcher = (url) => fetch(url).then(r => r.json())
