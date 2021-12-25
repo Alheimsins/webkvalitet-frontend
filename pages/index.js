@@ -1,33 +1,21 @@
+import useSWR from "swr"
+
 import Card from "../components/card"
 
-export default function Home({ data }) {
+const fetcher = (url) => fetch(url).then(r => r.json())
+const calculateTotalScore = categories => categories.reduce((accumulator, current) => accumulator + current.score, 0)
+const repackData = data => data ? data
+        .map(item => ({ ...item, categories: item.result.sort((a, b) => a.title.localeCompare(b.title)), total: calculateTotalScore(item.result) }))
+        .sort((a, b) => (a.total < b.total) ? 1 : -1) : []
+
+export default function Home() {
+  const { data, error } = useSWR("https://webkvalitet.api.alheimsins.net/fylker", fetcher)
+
   return (
     <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
       <ul role="list" className="space-y-12">
-        {data.map((result, index) => <Card key={result.id} place={index+1} {...result} />)}
+        {repackData(data).map((result, index) => <Card key={result.id} place={index+1} {...result} />)}
       </ul>
     </div>
   )
-}
-
-export async function getServerSideProps(context) {
-  const res = await fetch('https://webkvalitet.api.alheimsins.net/fylker')
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      data: [],
-    }
-  }
-
-  const calculateTotalScore = categories => categories.reduce((accumulator, current) => accumulator + current.score, 0)
-
-  // Massages the data a bit
-  const repackedData = data
-        .map(item => ({ ...item, categories: item.result.sort((a, b) => a.title.localeCompare(b.title)), total: calculateTotalScore(item.result) }))
-        .sort((a, b) => (a.total < b.total) ? 1 : -1)
-
-  return {
-    props: { data: repackedData },
-  }
 }
