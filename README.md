@@ -1,6 +1,12 @@
 # webkvalitet-web-next
 
-Website for the webquality-api based on Next.js
+Website for the [webquality-api](https://github.com/Alheimsins/webkvalitet-api) based on [Next.js](https://nextjs.org/).
+
+# Development
+
+- clone repo
+- install dependencies `npm i`
+- start dev server `npm run dev`
 
 # License
 
