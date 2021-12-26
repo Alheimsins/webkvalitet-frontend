@@ -9,6 +9,7 @@ import SkeletonLoader from "../components/skeleton-loader"
 const Header = () => (
   <Head>
     <title>Webkvalitet</title>
+    <meta name="description" content="Webkvalitet sammenligner kvaliteten på ulike sider innen forskjellige kategorier" />
   </Head>
 )
 
