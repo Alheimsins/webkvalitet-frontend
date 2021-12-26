@@ -10,7 +10,7 @@ function getColor(score) {
   }
 }
 
-export default function Score({ title, score }) {
+export default function Score({ title, score=0 }) {
   return (
     <div className="flex flex-col m-2">
       <CircularProgressbarWithChildren
