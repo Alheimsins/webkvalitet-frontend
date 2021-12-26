@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 
-import Card from "../components/card"
 import useData from "../lib/use-data"
+import Card from "../components/card"
+import SkeletonLoader from "../components/skeleton-loader"
 
 export default function Path() {
   const router = useRouter()
@@ -20,9 +21,11 @@ export default function Path() {
   if (isLoading) {
     return (
       <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div>
-          Loading ...
-        </div>
+        <ul role="list" className="space-y-12">
+          <SkeletonLoader place={'1'}/>
+          <SkeletonLoader place={'2'}/>
+          <SkeletonLoader place={'3'}/>
+        </ul>
       </div>
     )
   }
