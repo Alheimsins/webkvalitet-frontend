@@ -15,7 +15,7 @@ export default function Score({ title, score }) {
     <div className="flex flex-col m-2">
       <CircularProgressbarWithChildren
         value={score}
-        text={score}
+        text={score || 0}
         className="w-24 h-24"
         strokeWidth={10}
         styles={buildStyles({
