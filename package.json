@@ -6,11 +6,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "test": "next lint && jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:ci": "next lint && jest --ci --passWithNoTests"
   },
   "dependencies": {
+    "@alheimsins/webquality": "2.0.7",
     "@heroicons/react": "1.0.5",
     "next": "12.0.7",
     "react": "17.0.2",
