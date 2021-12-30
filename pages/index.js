@@ -8,7 +8,7 @@ import SkeletonLoader from "../components/skeleton-loader"
 const Header = () => (
   <Head>
     <title>Webkvalitet</title>
-    <meta name="description" content="Finn webbkvaliteten på nettstedet ditt" />
+    <meta name="description" content="Finn webkvaliteten på nettstedet ditt" />
   </Head>
 )
 
@@ -36,41 +36,15 @@ export default function Home() {
     )
   }
 
-  if (isError) {
-    return (
-      <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <Header />
-        <div>Something went wrong ...</div>
-      </div>
-    )
-  }
-  
-  if (isLoading) {
-    return (
-      <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <Header />
-        <ul role="list" className="space-y-12">
-          <SkeletonLoader place={'1'}/>
-        </ul>
-      </div>
-    )
-  }
-
-  if (data) {
-    return (
-      <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <Header />
-        <ul role="list" className="space-y-12">
-          {data.map((result, index) => <Card key={result.id} place={index+1} {...result} />)}
-        </ul>
-      </div>
-    )
-  }
-
   return (
     <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <Header />
         <UrlForm />
+        <ul role="list" className="space-y-12">
+          {data && data.map((result, index) => <Card key={result.id} place={index+1} {...result} />)}
+          {isLoading && <SkeletonLoader title={'...checking'}/>}
+          {isError && <li>Something went wrong ...</li>}
+        </ul>
     </div>
   )
 }
