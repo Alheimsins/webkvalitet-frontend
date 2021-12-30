@@ -10,7 +10,7 @@ const result = [
   { id: 'seo', title: 'SEO'},
 ]
 
-export default function SkeletonLoader ({ place = 1 }) {
+export default function SkeletonLoader ({ place = 1, title = '...loading' }) {
   return (
     <li className="bg-white shadow overflow-hidden sm:rounded-md p-0">
       <div className="flex justify-between mb-4 bg-gray-300 text-white p-4 animate-pulse">
@@ -18,7 +18,7 @@ export default function SkeletonLoader ({ place = 1 }) {
           <div className='text-2xl mr-2 bg-white text-black rounded-full w-12 h-12 flex justify-center align-middle p-0'>
             <span className='m-0 p-0 self-center'>{place}</span>
           </div>
-          <h1 className='text-2xl text-center p-1'>...loading</h1>
+          <h1 className='text-2xl text-center p-1'>{title}</h1>
         </div>
         <div className='flex'>
           <a href='' target='_blank' rel='noreferrer'><LinkIcon className='h-5 w-5 text-white hover:text-yellow-500 mr-3'/></a>
