@@ -5,6 +5,13 @@ import webquality from '@alheimsins/webquality'
 import Card from "../components/card"
 import SkeletonLoader from "../components/skeleton-loader"
 
+function fixUrl(url) {
+  if (!url.startsWith('http')) {
+    return `https://${url}`
+  }
+  return url
+}
+
 const Header = () => (
   <Head>
     <title>Webkvalitet</title>
@@ -19,10 +26,11 @@ export default function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const url = fixUrl(document.getElementById('url').value)
     setIsLoading(true)
     setData(null)
-    const result = await webquality(document.getElementById('url').value)
-    setData([{ name : 'webkvalitet', id: 'webkvalitet', result }])
+    const result = await webquality(url)
+    setData([{ name : url, id: 'webkvalitet', result }])
     setIsLoading(false)
   }
 
@@ -40,11 +48,11 @@ export default function Home() {
                 URL
               </label>
               <input
-                type="url"
+                type="text"
                 name="url"
                 id="url"
                 className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                placeholder="https://example.com"
+                placeholder="www.example.com"
               />
             </div>
             <button
