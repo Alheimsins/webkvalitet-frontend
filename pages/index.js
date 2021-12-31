@@ -15,7 +15,7 @@ function fixUrl(url) {
 const Header = () => (
   <Head>
     <title>Webkvalitet</title>
-    <meta name="description" content="Finn webkvaliteten på nettstedet ditt" />
+    <meta name="description" content="Sjekk webkvaliteten på nettsteder" />
   </Head>
 )
 
@@ -30,7 +30,7 @@ export default function Home() {
     setIsLoading(true)
     setData(null)
     const result = await webquality(url)
-    setData([{ name : url, id: 'webkvalitet', result }])
+    setData([{ name : url, id: 'webkvalitet', date: new Date(), result }])
     setIsLoading(false)
   }
 
