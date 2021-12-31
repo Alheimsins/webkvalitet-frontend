@@ -2,7 +2,7 @@ import { LightBulbIcon, LinkIcon, LockClosedIcon } from '@heroicons/react/outlin
 
 import Score from './score'
 
-export default function Card ({ name, url, result, place }) {
+export default function Card ({ name, url, result, place, date }) {
   return (
     <li className="bg-white shadow overflow-hidden sm:rounded-md p-0">
       <div className="flex justify-between mb-4 bg-black text-white p-4">
@@ -20,6 +20,9 @@ export default function Card ({ name, url, result, place }) {
       </div>
       <div className='flex flex-wrap sm:justify-between p-4'>
         {result.map(category => <Score key={category.id} {...category} />)}
+      </div>
+      <div className='text-gray-400 text-right p-2'>
+        Last updated: {new Date(date).toLocaleString()}
       </div>
     </li>
   )
