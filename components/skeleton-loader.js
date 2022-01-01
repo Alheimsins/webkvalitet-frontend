@@ -29,6 +29,12 @@ export default function SkeletonLoader ({ place = 1, title = '...loading' }) {
       <div className='flex flex-wrap sm:justify-between p-4'>
         {result.map(category => <Score key={category.id} {...category} />)}
       </div>
+      <div className='flex justify-end text-gray-400'>
+        <span className='text-right mr-4'>
+          Last updated: {new Date(date).toLocaleString()}
+        </span>
+        <button><ShareIcon className='h-5 w-5 mr-2'/></button>
+      </div>
     </li>
   )
 }
