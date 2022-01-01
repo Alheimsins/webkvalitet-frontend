@@ -1,4 +1,4 @@
-import { LightBulbIcon, LinkIcon, LockClosedIcon } from '@heroicons/react/outline'
+import { LightBulbIcon, LinkIcon, LockClosedIcon, ShareIcon } from '@heroicons/react/outline'
 
 import Score from './score'
 
@@ -21,8 +21,11 @@ export default function Card ({ name, url, result, place, date }) {
       <div className='flex flex-wrap sm:justify-between p-4'>
         {result.map(category => <Score key={category.id} {...category} />)}
       </div>
-      <div className='text-gray-400 text-right p-2'>
-        Last updated: {new Date(date).toLocaleString()}
+      <div className='flex justify-end text-gray-400'>
+        <span className='text-right mr-4'>
+          Last updated: {new Date(date).toLocaleString()}
+        </span>
+        <button><ShareIcon className='h-5 w-5 mr-2 hover:text-black'/></button>
       </div>
     </li>
   )
