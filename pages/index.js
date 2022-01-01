@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import webquality from '@alheimsins/webquality'
 
 import Card from "../components/card"
@@ -28,6 +29,7 @@ export default function Home() {
   const [data, setData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+  const router = useRouter()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -38,6 +40,12 @@ export default function Home() {
     setData([{ name : getHostname(url), id: 'webkvalitet', date: new Date(), result }])
     setIsLoading(false)
   }
+
+  useEffect(() => {
+    if (router.query.result) {
+      setData([JSON.parse(window.atob(router.query.result))])
+    }
+  }, [router.query.result])
 
   const UrlForm = () => {
     return (
