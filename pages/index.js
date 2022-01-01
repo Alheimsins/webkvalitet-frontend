@@ -12,6 +12,11 @@ function fixUrl(url) {
   return url
 }
 
+function getHostname (url) {
+  const address = new URL(url)
+  return address.hostname
+}
+
 const Header = () => (
   <Head>
     <title>Webkvalitet</title>
@@ -30,7 +35,7 @@ export default function Home() {
     setIsLoading(true)
     setData(null)
     const result = await webquality(url)
-    setData([{ name : url, id: 'webkvalitet', date: new Date(), result }])
+    setData([{ name : getHostname(url), id: 'webkvalitet', date: new Date(), result }])
     setIsLoading(false)
   }
 
