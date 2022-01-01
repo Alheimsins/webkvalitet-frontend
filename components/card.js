@@ -3,6 +3,18 @@ import { LightBulbIcon, LinkIcon, LockClosedIcon, ShareIcon } from '@heroicons/r
 import Score from './score'
 
 export default function Card ({ name, url, result, place, date }) {
+
+  function shareResult () {
+    const address = new URL(window.location.toString())
+    const result = window.btoa(JSON.stringify({
+      name, url, result, place, date
+    }))
+    const params = new URLSearchParams()
+    params.append('result', result)
+    const shareUrl = `${address.toString()}?${params.toString()}`
+    console.log(shareUrl)
+  }
+
   return (
     <li className="bg-white shadow overflow-hidden sm:rounded-md p-0">
       <div className="flex justify-between mb-4 bg-black text-white p-4">
@@ -25,7 +37,7 @@ export default function Card ({ name, url, result, place, date }) {
         <span className='text-right mr-4'>
           Last updated: {new Date(date).toLocaleString()}
         </span>
-        <button><ShareIcon className='h-5 w-5 mr-2 hover:text-black'/></button>
+        <button><ShareIcon onClick={shareResult} className='h-5 w-5 mr-2 hover:text-black'/></button>
       </div>
     </li>
   )
