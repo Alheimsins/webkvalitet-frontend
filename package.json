@@ -7,9 +7,9 @@
     "start": "next start",
     "lint": "next lint",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
-    "test": "next lint && jest --passWithNoTests",
+    "test": "next lint && jest",
     "test:watch": "jest --watch",
-    "test:ci": "next lint && jest --ci --passWithNoTests"
+    "test:ci": "next lint && jest --ci"
   },
   "dependencies": {
     "@alheimsins/webquality": "2.0.7",
