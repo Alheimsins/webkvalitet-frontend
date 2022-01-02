@@ -5,6 +5,7 @@ import webquality from '@alheimsins/webquality'
 
 import Card from "../components/card"
 import SkeletonLoader from "../components/skeleton-loader"
+import { decode} from '../lib/base64json'
 
 function fixUrl(url) {
   if (!url.startsWith('http')) {
@@ -43,7 +44,8 @@ export default function Home() {
 
   useEffect(() => {
     if (router.query.result) {
-      setData([JSON.parse(window.atob(router.query.result))])
+      setData([decode(router.query.result)])
+      console.log(data)
     }
   }, [router.query.result])
 

@@ -1,13 +1,14 @@
 import { LightBulbIcon, LinkIcon, LockClosedIcon, ShareIcon } from '@heroicons/react/outline'
 import clipboard from 'clipboardy'
 
+import { encode } from '../lib/base64json'
 import Score from './score'
 
 export default function Card ({ name, url, result, place, date, id }) {
 
   async function shareResult (data) {
     const address = new URL(window.location.toString())
-    const result = window.btoa(JSON.stringify(data))
+    const result = encode(data)
     const params = new URLSearchParams()    
     params.append('result', result)
     const shareUrl = `${address.protocol}//${address.hostname}${address.port ? `:${address.port}`: ''}?${params.toString()}`
