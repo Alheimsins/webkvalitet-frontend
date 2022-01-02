@@ -1,10 +1,13 @@
 import { LightBulbIcon, LinkIcon, LockClosedIcon, ShareIcon } from '@heroicons/react/outline'
 import clipboard from 'clipboardy'
+import { useEffect, useState } from 'react'
 
 import { encode } from '../lib/base64json'
+import Toast from './toast'
 import Score from './score'
 
 export default function Card ({ name, url, result, place, date, id }) {
+  const [toastMelding, setToastMelding] = useState()
 
   async function shareResult (data) {
     const address = new URL(window.location.toString())
@@ -13,8 +16,16 @@ export default function Card ({ name, url, result, place, date, id }) {
     params.append('result', result)
     const shareUrl = `${address.protocol}//${address.hostname}${address.port ? `:${address.port}`: ''}?${params.toString()}`
     await clipboard.write(shareUrl)
-    window.alert('Share url copied to clipboard')
+    setToastMelding('Share url copied to clipboard')
   }
+
+  useEffect(() => {
+    if (toastMelding) {
+      setTimeout(() => {
+        setToastMelding(false)
+      }, 3000)
+    }
+  }, [toastMelding])
 
   return (
     <li className="bg-white shadow overflow-hidden sm:rounded-md p-0">
@@ -40,6 +51,7 @@ export default function Card ({ name, url, result, place, date, id }) {
         </span>
         <button><ShareIcon onClick={() => shareResult({ name, url, result, place, date, id })} className='h-5 w-5 mr-2 hover:text-black'/></button>
       </div>
+      <Toast melding={toastMelding} />
     </li>
   )
 }
