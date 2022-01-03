@@ -45,7 +45,6 @@ export default function Home() {
   useEffect(() => {
     if (router.query.result) {
       setData([decode(router.query.result)])
-      console.log(data)
     }
   }, [router.query.result])
 
