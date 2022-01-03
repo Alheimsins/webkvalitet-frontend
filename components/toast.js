@@ -26,7 +26,7 @@ function Toast ({ melding }) {
       leaveFrom='opacity-100'
       leaveTo='opacity-0'
     >
-      <div className='z-10 sm:inset-0 md:inset-32 overflow-y-auto w-full'>
+      <div className='absolute z-10 md:inset-32 inset-16 w-full'>
         <div className='max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden'>
           <div className='p-4'>
             <div className='flex items-start'>

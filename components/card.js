@@ -28,7 +28,7 @@ export default function Card ({ name, url, result, place, date, id }) {
   }, [toastMelding])
 
   return (
-    <li className="bg-white shadow overflow-hidden sm:rounded-md p-0">
+    <li className="bg-white shadow overflow-hidden sm:rounded-md p-0 relative">
       <div className="flex justify-between mb-4 bg-black text-white p-4">
         <div className='flex align-middle'>
           <div className='text-2xl mr-2 bg-white text-black rounded-full w-12 h-12 flex justify-center align-middle p-0'>
