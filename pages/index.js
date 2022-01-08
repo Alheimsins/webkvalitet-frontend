@@ -38,7 +38,7 @@ export default function Home() {
     setIsLoading(true)
     setData(null)
     const result = await webquality(url)
-    setData([{ name : getHostname(url), id: 'webkvalitet', date: new Date(), result }])
+    setData([{ name : getHostname(url), id: 'webkvalitet', date: new Date(), url, result }])
     setIsLoading(false)
   }
 
