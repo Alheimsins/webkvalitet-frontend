@@ -2,7 +2,7 @@
 
 Website for the [webkvalitet-api](https://github.com/Alheimsins/webkvalitet-api) based on [Next.js](https://nextjs.org/).
 
-[See it live](https://webkvalitet.alheimsins.net)
+[See it live](https://webkvalitet.vercel.app/)
 
 # Development
 
