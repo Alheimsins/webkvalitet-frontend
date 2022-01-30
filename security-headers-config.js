@@ -1,6 +1,6 @@
 const csp = {
   "default-src": ["'self'"],
-  "connect-src": ["'self'", "lighthouse-dot-webdotdevsite.appspot.com", "securityheaders.com", "vitals.vercel-insights.com"],
+  "connect-src": ["'self'", "lighthouse-dot-webdotdevsite.appspot.com", "securityheaders.com", "vitals.vercel-insights.com", "webkvalitet.api.alheimsins.net"],
   "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
   "style-src": ["'self'", "blob:", "'unsafe-inline'", "fonts.googleapis.com"],
   "font-src": ["'self'", "data:", "fonts.gstatic.com"],
